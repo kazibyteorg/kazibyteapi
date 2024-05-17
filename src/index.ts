@@ -1,5 +1,5 @@
 import app from "./app";
-import db from "./config/dbUrl";
+// import db from "./config/dbUrl";
 import "dotenv/config";
 import { registration, login, getDashboard, getUser } from "./routes";
 import mongoose from "mongoose";
@@ -7,16 +7,16 @@ import mongoose from "mongoose";
 import notification from "@/routes/notification";
 
 app;
-db;
+// db;
 
-// mongoose
-//   .connect("mongodb://localhost:27017/auth_mechanisms")
-//   .then(() => {
-//     console.log("Connected to MongoDB success");
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
+mongoose
+  .connect("mongodb://localhost:27017/kazibyte_api")
+  .then(() => {
+    console.log("Connected to MongoDB success localhost");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 // all the routes are defined here
 
