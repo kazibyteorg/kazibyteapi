@@ -3,7 +3,6 @@ import app from "./app";
 import "dotenv/config";
 import { registration, login, getDashboard } from "./routes";
 import mongoose from "mongoose";
-import { googleAuth, authUserData } from "./routes";
 
 import notification from "@/routes/notification";
 import { SenderController } from "./controllers/notification/sending";
@@ -29,10 +28,6 @@ const dashboard = getDashboard;
 
 app.use("/", dashboard);
 app.use("/auth", allRoutes);
-
-app.use("/", googleAuth);
-
-app.use("/", authUserData);
 
 app.use("/", notification);
 
