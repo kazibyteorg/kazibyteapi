@@ -31,3 +31,18 @@ app.use("/auth", allRoutes);
 app.use("/", getUser);
 
 app.use("/", notification);
+
+// faq
+import {
+  createFAQ,
+  getByIdFAQ,
+  getAllFAQs,
+  updateFAQ,
+  deleteFAQ,
+} from "./index";
+
+app.use("/", createFAQ);
+app.use("/", getByIdFAQ);
+app.use("/", getAllFAQs);
+app.use("/", updateFAQ);
+app.use("/", deleteFAQ);
