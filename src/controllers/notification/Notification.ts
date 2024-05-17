@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import redisClient from "@/redisClient";
+import redisClient from "@/utils/redisClient";
 
 const CHANNEL = "notifications";
 
