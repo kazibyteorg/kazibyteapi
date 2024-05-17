@@ -10,10 +10,10 @@ app.use(express.json());
 app.use(cors());
 app.use(morgan("dev"));
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 4000 || 4001 || 4002;
 
 app.get("/", (_req, res) => {
-  res.send("Hello World!");
+  res.send("<h1>Hello Kazi Byte!, Welcome to Kazi Byte API</h1>");
 });
 
 app.listen(port, () => {

@@ -1,7 +1,7 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { Request, Response, NextFunction } from "express";
-import { LoginSchema, LoginHistorySchema } from "@/types/auth/UserSchemas";
+import { LoginSchema, LoginHistorySchema } from "@/schemas/auth/UserSchemas";
 import User from "@/models/auth/User";
 import LoginHistory from "@/models/auth/LoginHistory";
 

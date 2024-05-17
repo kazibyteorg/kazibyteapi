@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { RegistrationSchema } from "@/types/auth/UserSchemas";
+import { RegistrationSchema } from "@/schemas/auth/UserSchemas";
 import User from "@/models/auth/User";
 import bcrypt from "bcryptjs";
 import RegistrationHistory from "@/models/auth/RegistrationHistory";

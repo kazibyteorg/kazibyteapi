@@ -1,7 +1,7 @@
 import app from "./app";
 import db from "./config/dbUrl";
 import "dotenv/config";
-import { registration, login, getDashboard } from "./routes";
+import { registration, login, getDashboard, getUser } from "./routes";
 import mongoose from "mongoose";
 
 import notification from "@/routes/notification";
@@ -20,10 +20,11 @@ db;
 
 // all the routes are defined here
 
-const allRoutes = [registration, login];
+const allRoutes = [registration, login, getUser];
 const dashboard = getDashboard;
 
 app.use("/", dashboard);
 app.use("/auth", allRoutes);
+app.use("/", getUser);
 
 app.use("/", notification);
