@@ -5,10 +5,12 @@ const faqSchema = new Schema(
     title: {
       type: String,
       required: true,
+      default: true,
     },
     description: {
       type: String,
       required: true,
+      default: true,
     },
     question: {
       type: String,
