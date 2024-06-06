@@ -16,3 +16,8 @@ const pricingSchema = new Schema({
         required: true
     },
 })
+
+
+const Pricing = model('Pricing', pricingSchema)
+
+export default Pricing;
