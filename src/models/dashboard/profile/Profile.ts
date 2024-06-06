@@ -1,15 +1,42 @@
-import mongoose from "mongoose";
+import { Schema, model } from "mongoose";
 
-const { Schema, model } = mongoose;
+
 
 const userProfileSchema = new Schema(
   {
+   authorId: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+
+    username: {
+      type: String,
+      required: true,
+      unique: true,
+      trim: true,
+    },
+
     name: {
       type: String,
       required: true,
       trim: true,
     },
     email: {
+      type: String,
+      required: true,
+      unique: true,
+      lowercase: true,
+      trim: true,
+    },
+    primaryEmail: {
+      type: String,
+      required: true,
+      unique: true,
+      lowercase: true,
+      trim: true,
+    },
+    publicEmail: {
       type: String,
       required: true,
       unique: true,
@@ -47,14 +74,12 @@ const userProfileSchema = new Schema(
       trim: true,
       default: "https://i.pravatar.cc/300",
     },
-    createdAt: {
+    dateOfBirth: {
       type: Date,
-      default: Date.now,
+      trim: true,
+      required: true,
     },
-    updatedAt: {
-      type: Date,
-      default: Date.now,
-    },
+    
   },
   {
     timestamps: true,
