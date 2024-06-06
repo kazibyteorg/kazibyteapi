@@ -1,9 +1,9 @@
 import { Request, Response, NextFunction } from "express";
-import FAQ from "@/models/dashboard/pages/FAQ/FAQ";
+import  Team  from '@/models/dashboard/pages/teams/Teams';
 import mongoose from "mongoose";
 
-// Controller to handle deleting an FAQ by its ID
-const deleteFAQ = async (req: Request, res: Response, next: NextFunction) => {
+// Controller to handle deleting an Team by its ID
+const deleteTeam = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { id } = req.params;
 
@@ -11,27 +11,27 @@ const deleteFAQ = async (req: Request, res: Response, next: NextFunction) => {
     if (!mongoose.Types.ObjectId.isValid(id)) {
       return res.status(400).json({
         success: false,
-        message: "Invalid FAQ ID format",
+        message: "Invalid Team ID format",
       });
     }
 
-    // Check if the FAQ exists
-    const existingFAQ = await FAQ.findById(id);
-    if (!existingFAQ) {
-      // If the FAQ does not exist, return a 404 response
+    // Check if the Team exists
+    const existingTeam = await Team.findById(id);
+    if (!existingTeam) {
+      // If the Team does not exist, return a 404 response
       return res.status(404).json({
         success: false,
-        message: "FAQ not found",
+        message: "Team not found",
       });
     }
 
-    // Delete the FAQ
-    await FAQ.findByIdAndDelete(id);
+    // Delete the Team
+    await Team.findByIdAndDelete(id);
 
     // Return a success response
     return res.status(200).json({
       success: true,
-      message: "FAQ deleted successfully",
+      message: "Team deleted successfully",
     });
   } catch (error) {
     // Pass any unexpected errors to the next middleware
@@ -39,4 +39,4 @@ const deleteFAQ = async (req: Request, res: Response, next: NextFunction) => {
   }
 };
 
-export default deleteFAQ;
+export default deleteTeam;
