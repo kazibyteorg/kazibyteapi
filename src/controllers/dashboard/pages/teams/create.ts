@@ -1,11 +1,11 @@
 import { Request, Response, NextFunction } from "express";
-import FAQ from "@/models/dashboard/pages/FAQ/FAQ";
-import { FAQSchemas } from "@/schemas/dashboard/pages/FAQ/FAQSchemas";
+import FAQ from "@/models/dashboard/pages/teams/Teams";
+import { teamSchemas } from '@/schemas/dashboard/pages/Teams/teamSchemas'
 
-const createFAQ = async (req: Request, res: Response, next: NextFunction) => {
+const createTeams = async (req: Request, res: Response, next: NextFunction) => {
   try {
     // validate request body
-    const parsedBody = FAQSchemas.safeParse(req.body);
+    const parsedBody = teamSchemas.safeParse(req.body);
     if (!parsedBody.success) {
       return res.status(400).json({
         success: false,
@@ -16,8 +16,7 @@ const createFAQ = async (req: Request, res: Response, next: NextFunction) => {
 
     // Check if question & answer already exists
     const existingFAQ = await FAQ.findOne({
-      question: parsedBody.data.question,
-      answer: parsedBody.data.answer,
+      
     });
     if (existingFAQ) {
       return res.status(400).json({
@@ -43,4 +42,4 @@ const createFAQ = async (req: Request, res: Response, next: NextFunction) => {
   }
 };
 
-export default createFAQ;
+export default createTeams;
