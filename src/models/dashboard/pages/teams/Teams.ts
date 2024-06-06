@@ -25,7 +25,7 @@ const teamsSchema = new Schema({
 }, { timestamps: true })
 
 
-const Team = model('Teams', teamsSchema)
+const Team = model('Team', teamsSchema)
 
 export default Team;
 
